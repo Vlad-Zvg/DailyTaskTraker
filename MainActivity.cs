@@ -1,4 +1,6 @@
-namespace TaskTraker
+using DailyTaskTraker.Data;
+
+namespace DailyTaskTraker
 {
     [Activity(Label = "@string/app_name", MainLauncher = true)]
     public class MainActivity : Activity
@@ -6,9 +8,14 @@ namespace TaskTraker
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
+
+            _ = InitDatabaseAsync();
+        }
+
+        private async Task InitDatabaseAsync()
+        {
+            await DatabaseHelper.Instance.InitAsync();
         }
     }
 }
