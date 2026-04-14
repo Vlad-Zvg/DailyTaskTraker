@@ -6,6 +6,8 @@ using DailyTaskTraker.Views;
 
 namespace DailyTaskTraker.Adapters
 {
+    // Adapter не используется в текущей навигации (заменён на BottomNav + DrawerLayout),
+    // оставлен для совместимости компиляции.
     public class TabsPagerAdapter : FragmentStateAdapter
     {
         private readonly List<Tab> _tabs;
@@ -25,7 +27,7 @@ namespace DailyTaskTraker.Adapters
             if (tab.Type == TabType.History)
                 return new HistoryFragment();
 
-            return TaskListFragment.NewInstance(tab.Id);
+            return new TaskListFragment();
         }
     }
 }

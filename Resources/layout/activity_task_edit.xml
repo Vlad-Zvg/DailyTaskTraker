@@ -1,164 +1,240 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/android:colorBackground"
     android:fitsSystemWindows="true">
 
-    <LinearLayout
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorSurface"
+        app:navigationIcon="@drawable/ic_back"
+        app:title="Задача" />
 
-        <!-- Название задачи -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilTitle"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Название задачи">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorCardStroke" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:maxLines="1" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Категория -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Категория"
-            android:textSize="14sp"
-            android:textColor="@android:color/darker_gray"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="4dp" />
-
-        <Spinner
-            android:id="@+id/spinnerCategory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <!-- Повторение -->
-        <CheckBox
-            android:id="@+id/checkboxRecurring"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Повторяющаяся задача" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/layoutRecurrence"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginStart="16dp"
-            android:visibility="gone">
+            android:padding="16dp">
 
-            <RadioGroup
-                android:id="@+id/radioGroupRecurrence"
+            <!-- Карточка: название + категория -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginBottom="12dp">
 
-                <RadioButton
-                    android:id="@+id/radioDaily"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Ежедневно" />
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                <RadioButton
-                    android:id="@+id/radioWeekly"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Еженедельно" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilTitle"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Название задачи">
 
-                <RadioButton
-                    android:id="@+id/radioSpecificDays"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="По дням недели" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:maxLines="1" />
 
-            </RadioGroup>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-            <LinearLayout
-                android:id="@+id/layoutDays"
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Категория"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorTextSecondary"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="6dp" />
+
+                    <Spinner
+                        android:id="@+id/spinnerCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Карточка: повторение -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:visibility="gone"
-                android:layout_marginTop="8dp">
+                android:layout_marginBottom="12dp">
 
-                <CheckBox android:id="@+id/checkMon" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Пн" />
-                <CheckBox android:id="@+id/checkTue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Вт" />
-                <CheckBox android:id="@+id/checkWed" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Ср" />
-                <CheckBox android:id="@+id/checkThu" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Чт" />
-                <CheckBox android:id="@+id/checkFri" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Пт" />
-                <CheckBox android:id="@+id/checkSat" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Сб" />
-                <CheckBox android:id="@+id/checkSun" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Вс" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-            </LinearLayout>
+                    <CheckBox
+                        android:id="@+id/checkboxRecurring"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimary"
+                        android:text="Повторяющаяся задача"
+                        android:textSize="15sp"
+                        android:textColor="?attr/colorOnSurface" />
+
+                    <LinearLayout
+                        android:id="@+id/layoutRecurrence"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:visibility="gone">
+
+                        <RadioGroup
+                            android:id="@+id/radioGroupRecurrence"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <RadioButton
+                                android:id="@+id/radioDaily"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/colorPrimary"
+                                android:text="Ежедневно" />
+
+                            <RadioButton
+                                android:id="@+id/radioWeekly"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/colorPrimary"
+                                android:text="Еженедельно" />
+
+                            <RadioButton
+                                android:id="@+id/radioSpecificDays"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:buttonTint="@color/colorPrimary"
+                                android:text="По дням недели" />
+
+                        </RadioGroup>
+
+                        <LinearLayout
+                            android:id="@+id/layoutDays"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:visibility="gone"
+                            android:layout_marginTop="8dp">
+
+                            <CheckBox android:id="@+id/checkMon" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:buttonTint="@color/colorPrimary" android:text="Пн" />
+                            <CheckBox android:id="@+id/checkTue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:buttonTint="@color/colorPrimary" android:text="Вт" />
+                            <CheckBox android:id="@+id/checkWed" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:buttonTint="@color/colorPrimary" android:text="Ср" />
+                            <CheckBox android:id="@+id/checkThu" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:buttonTint="@color/colorPrimary" android:text="Чт" />
+                            <CheckBox android:id="@+id/checkFri" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:buttonTint="@color/colorPrimary" android:text="Пт" />
+                            <CheckBox android:id="@+id/checkSat" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:buttonTint="@color/colorPrimary" android:text="Сб" />
+                            <CheckBox android:id="@+id/checkSun" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:buttonTint="@color/colorPrimary" android:text="Вс" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Карточка: напоминание -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <CheckBox
+                        android:id="@+id/checkboxReminder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/colorPrimary"
+                        android:text="Добавить напоминание"
+                        android:textSize="15sp"
+                        android:textColor="?attr/colorOnSurface" />
+
+                    <LinearLayout
+                        android:id="@+id/layoutReminder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="gone"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="10dp">
+
+                        <Button
+                            android:id="@+id/btnPickDate"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Дата"
+                            android:layout_marginEnd="4dp" />
+
+                        <Button
+                            android:id="@+id/btnPickTime"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Время"
+                            android:layout_marginStart="4dp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/textReminderValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
+                        android:textSize="13sp"
+                        android:textColor="@color/colorTextSecondary"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Кнопка сохранить -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                android:text="Сохранить" />
 
         </LinearLayout>
 
-        <!-- Напоминание -->
-        <CheckBox
-            android:id="@+id/checkboxReminder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Добавить напоминание" />
+    </ScrollView>
 
-        <LinearLayout
-            android:id="@+id/layoutReminder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:visibility="gone"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp">
-
-            <Button
-                android:id="@+id/btnPickDate"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Дата"
-                android:layout_marginEnd="4dp" />
-
-            <Button
-                android:id="@+id/btnPickTime"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Время"
-                android:layout_marginStart="4dp" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textReminderValue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:textSize="13sp"
-            android:textColor="@android:color/darker_gray"
-            android:visibility="gone" />
-
-        <!-- Кнопка сохранить -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSave"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Сохранить" />
-
-    </LinearLayout>
-
-</ScrollView>
+</LinearLayout>

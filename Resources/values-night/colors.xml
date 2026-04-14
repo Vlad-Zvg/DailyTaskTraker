@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#5BA3F5</color>
-    <color name="colorPrimaryVariant">#3D7EC8</color>
-    <color name="colorOnPrimary">#FFFFFF</color>
-    <color name="colorSecondary">#8FE33A</color>
-    <color name="colorSecondaryVariant">#6AB524</color>
-    <color name="colorOnSecondary">#000000</color>
+    <!-- Primary: Vivid Lime Green (brighter for dark bg) -->
+    <color name="colorPrimary">#7DCF55</color>
+    <color name="colorPrimaryVariant">#6BBE3F</color>
+    <color name="colorOnPrimary">#1A1A1A</color>
+
+    <color name="colorSecondary">#7DCF55</color>
+    <color name="colorSecondaryVariant">#6BBE3F</color>
+    <color name="colorOnSecondary">#1A1A1A</color>
+
+    <!-- Backgrounds -->
+    <color name="colorBackground">#111111</color>
+    <color name="colorSurface">#1E1E1E</color>
+    <color name="colorOnBackground">#FFFFFF</color>
+    <color name="colorOnSurface">#FFFFFF</color>
+
+    <!-- Text -->
+    <color name="colorTextPrimary">#FFFFFF</color>
+    <color name="colorTextSecondary">#757575</color>
+
+    <!-- Card border -->
+    <color name="colorCardStroke">#2C2C2C</color>
+
+    <!-- Category chip -->
+    <color name="colorChipBg">#233020</color>
 </resources>
