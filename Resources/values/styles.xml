@@ -13,11 +13,11 @@
         <item name="android:colorBackground">@color/colorBackground</item>
         <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
         <item name="android:fitsSystemWindows">true</item>
-        <!-- Global card style -->
+        <!-- Глобальный стиль карточек -->
         <item name="materialCardViewStyle">@style/Widget.App.CardView</item>
     </style>
 
-    <!-- Minimal flat card with subtle border -->
+    <!-- Минималистичная карточка с тонкой обводкой -->
     <style name="Widget.App.CardView" parent="Widget.MaterialComponents.CardView">
         <item name="cardCornerRadius">16dp</item>
         <item name="cardElevation">0dp</item>
@@ -26,10 +26,10 @@
         <item name="cardBackgroundColor">@color/colorSurface</item>
     </style>
 
-    <!-- Bold minimal toolbar title -->
-    <style name="TextAppearance.App.Toolbar" parent="TextAppearance.MaterialComponents.Headline6">
-        <item name="android:textSize">20sp</item>
-        <item name="android:textStyle">bold</item>
+    <!-- Chip стиль фильтра вкладок -->
+    <style name="Widget.App.FilterChip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipCornerRadius">20dp</item>
+        <item name="android:textSize">13sp</item>
     </style>
 
 </resources>

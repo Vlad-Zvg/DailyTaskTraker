@@ -34,6 +34,9 @@ namespace DailyTaskTraker.Views
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_task_edit);
+
+            var toolbar = FindViewById<Google.Android.Material.AppBar.MaterialToolbar>(Resource.Id.toolbar)!;
+            SetSupportActionBar(toolbar);
             SupportActionBar?.SetDisplayHomeAsUpEnabled(true);
 
             BindViews();

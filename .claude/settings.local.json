@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dotnet build:*)",
+      "Bash(wc -l Data/*.cs Services/*.cs Models/*.cs ViewModels/*.cs Views/*.cs Adapters/*.cs)",
+      "Bash(dotnet publish:*)"
+    ]
+  }
+}

@@ -1,3 +1,4 @@
+using Android.Graphics;
 using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
@@ -44,8 +45,17 @@ namespace DailyTaskTraker.Adapters
 
             vh.TextTitle.Text = task.Title;
             vh.TextCategory.Text = task.Category?.Name ?? string.Empty;
+            vh.TextCategory.Visibility = string.IsNullOrEmpty(task.Category?.Name)
+                ? ViewStates.Gone
+                : ViewStates.Visible;
 
-            // Отключаем слушатель перед программным изменением, чтобы не тригерить лишний вызов
+            // Зачёркивание и прозрачность для выполненных задач
+            vh.TextTitle.PaintFlags = task.IsDone
+                ? vh.TextTitle.PaintFlags | PaintFlags.StrikeThruText
+                : vh.TextTitle.PaintFlags & ~PaintFlags.StrikeThruText;
+            vh.TextTitle.Alpha = task.IsDone ? 0.5f : 1.0f;
+
+            // Отключаем слушатель перед программным изменением
             vh.Checkbox.SetOnCheckedChangeListener(null);
             vh.Checkbox.Checked = task.IsDone;
             vh.Checkbox.SetOnCheckedChangeListener(new CheckedChangeListener(task, _onToggle));
