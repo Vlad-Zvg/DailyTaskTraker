@@ -5,6 +5,7 @@ using DailyTaskTraker.Adapters;
 using DailyTaskTraker.Data;
 using DailyTaskTraker.Models;
 using DailyTaskTraker.ViewModels;
+using Google.Android.Material.AppBar;
 using Google.Android.Material.Tabs;
 
 namespace DailyTaskTraker
@@ -13,6 +14,7 @@ namespace DailyTaskTraker
     public class MainActivity : AppCompatActivity
     {
         private readonly MainViewModel _viewModel = new();
+        private MaterialToolbar _toolbar = null!;
         private TabLayout _tabLayout = null!;
         private ViewPager2 _viewPager = null!;
 
@@ -20,6 +22,9 @@ namespace DailyTaskTraker
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
+
+            _toolbar = FindViewById<MaterialToolbar>(Resource.Id.toolbar)!;
+            SetSupportActionBar(_toolbar);
 
             _tabLayout = FindViewById<TabLayout>(Resource.Id.tabLayout)!;
             _viewPager = FindViewById<ViewPager2>(Resource.Id.viewPager)!;

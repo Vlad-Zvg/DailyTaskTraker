@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="20dp">
 
         <!-- Название задачи -->
         <com.google.android.material.textfield.TextInputLayout
@@ -32,10 +32,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Категория"
-            android:textSize="14sp"
-            android:textColor="@android:color/darker_gray"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="4dp" />
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorTextSecondary"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="6dp" />
 
         <Spinner
             android:id="@+id/spinnerCategory"
@@ -47,7 +48,8 @@
             android:id="@+id/checkboxRecurring"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
+            android:buttonTint="@color/colorPrimary"
             android:text="Повторяющаяся задача" />
 
         <LinearLayout
@@ -68,18 +70,21 @@
                     android:id="@+id/radioDaily"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorPrimary"
                     android:text="Ежедневно" />
 
                 <RadioButton
                     android:id="@+id/radioWeekly"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorPrimary"
                     android:text="Еженедельно" />
 
                 <RadioButton
                     android:id="@+id/radioSpecificDays"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/colorPrimary"
                     android:text="По дням недели" />
 
             </RadioGroup>
@@ -92,13 +97,13 @@
                 android:visibility="gone"
                 android:layout_marginTop="8dp">
 
-                <CheckBox android:id="@+id/checkMon" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Пн" />
-                <CheckBox android:id="@+id/checkTue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Вт" />
-                <CheckBox android:id="@+id/checkWed" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Ср" />
-                <CheckBox android:id="@+id/checkThu" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Чт" />
-                <CheckBox android:id="@+id/checkFri" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Пт" />
-                <CheckBox android:id="@+id/checkSat" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Сб" />
-                <CheckBox android:id="@+id/checkSun" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Вс" />
+                <CheckBox android:id="@+id/checkMon" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:buttonTint="@color/colorPrimary" android:text="Пн" />
+                <CheckBox android:id="@+id/checkTue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:buttonTint="@color/colorPrimary" android:text="Вт" />
+                <CheckBox android:id="@+id/checkWed" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:buttonTint="@color/colorPrimary" android:text="Ср" />
+                <CheckBox android:id="@+id/checkThu" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:buttonTint="@color/colorPrimary" android:text="Чт" />
+                <CheckBox android:id="@+id/checkFri" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:buttonTint="@color/colorPrimary" android:text="Пт" />
+                <CheckBox android:id="@+id/checkSat" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:buttonTint="@color/colorPrimary" android:text="Сб" />
+                <CheckBox android:id="@+id/checkSun" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:buttonTint="@color/colorPrimary" android:text="Вс" />
 
             </LinearLayout>
 
@@ -110,6 +115,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:buttonTint="@color/colorPrimary"
             android:text="Добавить напоминание" />
 
         <LinearLayout
@@ -119,7 +125,7 @@
             android:orientation="horizontal"
             android:visibility="gone"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp">
+            android:layout_marginTop="6dp">
 
             <Button
                 android:id="@+id/btnPickDate"
@@ -148,7 +154,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:textSize="13sp"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="@color/colorTextSecondary"
             android:visibility="gone" />
 
         <!-- Кнопка сохранить -->
@@ -156,7 +162,9 @@
             android:id="@+id/btnSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="28dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp"
             android:text="Сохранить" />
 
     </LinearLayout>
